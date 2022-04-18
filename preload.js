@@ -1,6 +1,11 @@
-const { contextBridge } = require("electron");
+const { contextBridge, ipcRenderer } = require("electron");
 contextBridge.exposeInMainWorld("myAPI", {
   desktop: true,
+});
+contextBridge.exposeInMainWorld("electronAPI", {
+  setTitle: (title) => {
+    ipcRenderer.send("setTitleFunction", title);
+  },
 });
 window.addEventListener("DOMContentLoaded", () => {
   const replaceText = (selector, text) => {

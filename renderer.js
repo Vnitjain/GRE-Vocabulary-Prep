@@ -1,4 +1,9 @@
 console.log("in renderer js");
-document.getElementById("test-window-api").innerText = JSON.stringify(
-  window.myAPI
-);
+const setButton = document.getElementById("btn");
+const titleInput = document.getElementById("title");
+
+setButton.addEventListener("click", () => {
+  const title = titleInput.value;
+  console.log(title);
+  window.electronAPI.setTitle(title);
+});
