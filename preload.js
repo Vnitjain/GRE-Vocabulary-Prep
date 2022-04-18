@@ -1,5 +1,8 @@
+const { contextBridge } = require("electron");
+contextBridge.exposeInMainWorld("myAPI", {
+  desktop: true,
+});
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("hi");
   const replaceText = (selector, text) => {
     const element = document.getElementById(selector);
     if (element) {
