@@ -7,10 +7,20 @@
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
+    <link rel="stylesheet" href="./resources/css/custom.css" />
     <title>Menu Counter</title>
   </head>
   <body>
-    Current value: <strong id="counter">0</strong>
+    <div class="container file-selected">
+      <div class="flashcard-word center text">{}</div>
+      <div class="flashcard-text center text">{}</div>
+      <div class="flashcard-example center text">{}</div>
+      <button class="previous">Previous</button>
+      <button class="next">Next</button>
+    </div>
+    <div class="container no-file-selected center text hidden">
+      Please select a JSON file
+    </div>
     <script src="./renderer.js"></script>
   </body>
 </html>

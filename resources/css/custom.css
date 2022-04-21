@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  overflow: hidden;
+  background-color: black;
+}
+.center{
+    text-align: center;
+}
+.container {
+  border: 1px solid white;
+  color: white;
+  position:absolute;
+  top: 30%;
+  left: 30%;
+  height: 40%;
+  width: 40%;
+}
+.next{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background-color: black;
+    border: 2px solid white;
+    color: white;width: 50%;
+}
+.previous{
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    background-color: black;
+    border: 2px solid white;
+    color: white;width: 50%;
+}
+.text{
+    margin: 5px;
+    padding: 5px;
+}
+.hidden{
+  display: none;
+}

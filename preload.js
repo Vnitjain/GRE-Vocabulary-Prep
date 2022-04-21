@@ -1,5 +1,5 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
-contextBridge.exposeInMainWorld("electronAPI", {
-  handleCounter: (callback) => ipcRenderer.on("update-counter", callback),
+contextBridge.exposeInMainWorld("native", {
+  handleOpenFile: (callback) => ipcRenderer.on("openFile", callback),
 });
