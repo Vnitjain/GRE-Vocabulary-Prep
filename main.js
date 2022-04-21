@@ -1,6 +1,8 @@
 const { app, BrowserWindow, Menu, ipcMain, dialog } = require("electron");
+const { ConfigClass } = require("./configClass");
 const fs = require("fs");
 const path = require("path");
+const configClass = new ConfigClass();
 function createWindow() {
   const mainWindow = new BrowserWindow({
     webPreferences: {
@@ -19,7 +21,15 @@ function createWindow() {
             if (canceled) {
               return;
             } else {
-              mainWindow.webContents.send("openFile", filePaths[0]);
+              try {
+                configClass.writeConfig("sourceJsonPath", filePaths[0]);
+                const sourceJsonContents = JSON.parse(
+                  fs.readFileSync(filePaths[0])
+                );
+                mainWindow.webContents.send("openFile", sourceJsonContents);
+              } catch (error) {
+                console.error(error);
+              }
             }
           },
         },
@@ -28,6 +38,18 @@ function createWindow() {
   ];
   Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate));
   mainWindow.webContents.openDevTools();
+  mainWindow.on("ready-to-show", () => {
+    const configContents = configClass.configContents;
+    if (configContents !== null) {
+      const sourceJsonPath = configClass.readConfig("sourceJsonPath");
+      try {
+        const sourceJsonContents = JSON.parse(fs.readFileSync(sourceJsonPath));
+        mainWindow.webContents.send("openFile", sourceJsonContents);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  });
 }
 app.whenReady().then(() => {
   createWindow();
