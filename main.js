@@ -12,6 +12,9 @@ function createWindow() {
   mainWindow.loadFile("index.html");
   const menuTemplate = [
     {
+      label: "Electron",
+    },
+    {
       label: "File",
       submenu: [
         {

@@ -8,38 +8,49 @@ body {
   overflow: hidden;
   background-color: black;
 }
-.center{
-    text-align: center;
+.center {
+  text-align: center;
 }
 .container {
   border: 1px solid white;
   color: white;
-  position:absolute;
+  position: relative;
   top: 30%;
   left: 30%;
   height: 40%;
   width: 40%;
 }
-.next{
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
-    background-color: black;
-    border: 2px solid white;
-    color: white;width: 50%;
+.next {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  background-color: black;
+  border: 2px solid white;
+  color: white;
+  width: 50%;
 }
-.previous{
-    position: absolute;
-    left: 5px;
-    bottom: 5px;
-    background-color: black;
-    border: 2px solid white;
-    color: white;width: 50%;
+.reveal {
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  bottom: 30px;
+  background-color: black;
+  border: 2px solid white;
+  color: white;
 }
-.text{
-    margin: 5px;
-    padding: 5px;
+.previous {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  background-color: black;
+  border: 2px solid white;
+  color: white;
+  width: 50%;
 }
-.hidden{
+.text {
+  margin: 5px;
+  padding: 5px;
+}
+.hidden {
   display: none;
 }

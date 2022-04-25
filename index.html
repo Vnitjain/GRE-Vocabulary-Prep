@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
@@ -13,8 +12,9 @@
   <body>
     <div class="container file-selected hidden">
       <div class="flashcard-word center text">{}</div>
-      <div class="flashcard-text center text">{}</div>
-      <div class="flashcard-example center text">{}</div>
+      <div class="flashcard-text center text hidden">{}</div>
+      <div class="flashcard-example center text hidden">{}</div>
+      <button class="reveal">Reveal</button>
       <button class="previous">Previous</button>
       <button class="next">Next</button>
     </div>
